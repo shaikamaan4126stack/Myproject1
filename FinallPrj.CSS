@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    body{
+    min-height: 100vh;
+    background: linear-gradient(135deg,#0f2027,#203a43);
+    background-attachment: fixed;   /* FIX BACKGROUND */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    color: #fff;
+}
+
+
+
+/* Main Wrapper */
+
+
+/* Score board */
+.score-board {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slide 1s ease;
+}
+
+.score-board h2{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* score value */
+
+.score{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* quiz card */
+.quiz{
+    background: rgba(255, 255, 255, 0.12);
+    padding: 25px;
+    border-radius: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.question {
+    margin-bottom: 22px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    transition: 0.4s;
+}
+
+.question:hover{
+    transform: scale(1.02);
+}
+
+.question p {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    display: none;
+}
+
+label {
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+label:hover {
+    background: #fff;
+    color: #000;
+    transform: translateX(8px);
+
+}
+
+.correct:checked + label {
+    background-color: #2ecc71;
+    color: #000;
+    font-weight: bold;
+    pointer-events: none;
+    animation: correct 0.4s;
+} 
+
+.wrong:checked + label {
+    background: #e74c3c;
+    pointer-events: none;
+    animation: shake 0.3s;
+}
+
+input:checked ~ label {
+    pointer-events: none;
+    pointer-events: visible;
+    pointer-events: none;
+}
+
+@keyframes shake {
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-4px);
+    }
+    50%{
+        transform: translateX(4px);
+    }
+    
+}
+
+@keyframes correct {
+      0%{
+        transform:scale(1)
+    }
+    50%{
+        transform: scale(1.1)
+    }
+    100%{
+        transform: scale(1)
+    } 
+    
+}
+
+
+@keyframes slide {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);opacity: 1;
+    }
+    
+}
